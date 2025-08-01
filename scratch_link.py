@@ -543,14 +543,18 @@ async def ws_handler(websocket, path):
         logger.error(f"Failure in session for web socket path: {path}")
         logger.error(e)
 
-start_server = websockets.serve(
-    ws_handler, "device-manager.scratch.mit.edu", 20110, ssl=ssl_context
-)
+async def main():
+    while True:
+        try:
+            async with websockets.serve(
+                ws_handler,
+                "device-manager.scratch.mit.edu",
+                20110,
+                ssl=ssl_context
+            ):
+                await asyncio.Future()  # run forever
+        except Exception as e:
+            logger.info("restart server...")
 
-while True:
-    try:
-        asyncio.get_event_loop().run_until_complete(start_server)
-        asyncio.get_event_loop().run_forever()
-    except Exception as e:
-        logger.info("restart server...")
-
+if __name__ == "__main__":
+    asyncio.run(main())
