@@ -21,14 +21,14 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "bluepy", specifier = ">=1.3.0" },
-    { name = "pybluez", git = "https://github.com/pybluez/pybluez.git" },
+    { name = "pybluez", git = "https://github.com/kbudde/pybluez.git" },
     { name = "websockets", specifier = ">=15.0.1" },
 ]
 
 [[package]]
 name = "pybluez"
 version = "0.30"
-source = { git = "https://github.com/pybluez/pybluez.git#82cbba8a1ebd4c1e3442dfafd8581d58c50fa39e" }
+source = { git = "https://github.com/kbudde/pybluez.git#5e59adfa94e430b92ca97cb505b22ca24e157821" }
 
 [[package]]
 name = "websockets"

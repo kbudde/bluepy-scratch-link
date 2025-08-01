@@ -533,11 +533,12 @@ localhost_pem = pathlib.Path(__file__).with_name("scratch-device-manager.pem")
 ssl_context.load_cert_chain(localhost_pem)
 sessionTypes = { '/scratch/ble': BLESession, '/scratch/bt': BTSession }
 
-async def ws_handler(websocket, path):
+async def ws_handler(websocket):
+    path = None
     try:
+        path = websocket.request.path
         logger.info(f"Start session for web socket path: {path}")
-        loop = asyncio.get_event_loop()
-        session = sessionTypes[path](websocket, loop)
+        session = sessionTypes[path](websocket, asyncio.get_running_loop())
         await session.handle()
     except Exception as e:
         logger.error(f"Failure in session for web socket path: {path}")

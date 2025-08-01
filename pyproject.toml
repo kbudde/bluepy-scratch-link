@@ -11,4 +11,5 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-pybluez = { git = "https://github.com/pybluez/pybluez.git" }
+# includes https://github.com/pybluez/pybluez/pull/488
+pybluez = { git = "https://github.com/kbudde/pybluez.git" }

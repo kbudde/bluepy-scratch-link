@@ -1,5 +1,11 @@
 # bluepy-scratch-link
 
+> [!NOTE]  
+> This project was updated to work with ev3 on scratch3 (2025-08-01).
+> environment: python 3.13 with uv as package manager.
+> Nevertheless the ev3 scratch module is very limited. 
+
+
 Bluepy-scratch-link is [Scratch-link](https://github.com/LLK/scratch-link)
 implemented on bluepy as a small python script. As of October 2019, Scratch-link
 is a software module which connects [Scratch](https://scratch.mit.edu/) and
